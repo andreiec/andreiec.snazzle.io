@@ -1,0 +1,610 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    font-size: 16px;
+    font-family: 'PT Sans', sans-serif;
+    --text-primary: #b6b6b6;
+    --text-secondary: #ececec;
+    --bg-primary: #414446;
+    --bg-secondary: #323435;
+    --bg-tertiary: #242727;
+    --col-highlight: #4FBC63; 
+    --transition-speed: 300ms;
+}
+
+html {
+    margin: 0;
+    height: 100%;
+}
+
+/* Whole page */
+body {
+    color: white;
+    background-color: var(--bg-primary);
+    margin: 0;
+    padding: 0;
+    min-height: 100%;
+}
+
+/* This is for the scroll bar */
+body::-webkit-scrollbar {
+    width: 0.25rem;
+}
+
+body::-webkit-scrollbar-track{
+    background: var(--bg-tertiary);
+}
+
+body::-webkit-scrollbar-thumb {
+    background: var(--col-highlight);
+}
+
+/* Header CSS */
+#header {
+    top: 0;
+    background-color: var(--bg-tertiary);
+    color: white;
+    height: 5rem;
+    width: 100vw;
+    position: fixed;
+    justify-content: space-between;
+    display: flex;
+    align-items: center;
+    /* Top */
+    z-index: 5;
+    box-shadow: rgba(3, 8, 20, 0.1) 0px 0.15rem 0.5rem, rgba(2, 8, 20, 0.1) 0px 0.075rem 0.175rem;
+}
+
+.header-img {
+    max-height: 5rem;
+    margin-right: 3rem;
+    z-index: 20;
+}
+
+/* CSS for dropdown menu */
+
+.main-dropdown {
+    display: inline-block;
+    position: relative;
+}
+
+.main-dropdown-container {
+    opacity: 0;
+    visibility: hidden;
+    background-color: var(--bg-secondary);
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+    min-width: 100%;
+    transition: var(--transition-speed);
+    position: absolute;
+}
+
+.main-dropdown:hover .main-dropdown-container {
+    visibility: visible;
+    opacity: 1;
+}
+
+.main-dropdown-item{
+    display: block;
+    text-decoration: none;
+    padding: 8px;
+    color: var(--text-secondary);
+    background-color: var(--bg-secondary);
+    transition: 0.1s;
+    white-space: nowrap;
+}
+
+.main-dropdown-item:hover {
+    background-color: var(--bg-tertiary);
+}
+
+/* CSS for search box */
+.search-box {
+    position: relative;
+    display: flex;
+    width: 100%;
+    max-width: 53px;
+    overflow: hidden;
+    margin-right: 4rem;
+    margin-left: auto;
+    align-items: center;
+    transition: var(--transition-speed);
+}
+
+.search-box-mobile {
+    display: none;
+    position: fixed;
+    bottom: 6rem;
+    right: 1rem;
+    width: 100%;
+    max-width: 53px;
+    overflow: hidden;
+    align-items: center;
+    transition: var(--transition-speed);
+}
+
+.search-box:hover {
+    max-width: 300px;
+    transition: var(--transition-speed);
+}
+
+.search-box-mobile:hover {
+    max-width: 300px;
+    transition: var(--transition-speed);
+}
+
+.search-box-icon {
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    right: 16px;
+    pointer-events: none;
+    color: var(--col-highlight);
+}
+
+.search-input {
+    display: block;
+    appearance: none;
+    width: 100%;
+    border: none;
+    outline: none;
+    border-radius: 50px;
+    background-color: var(--bg-secondary);
+    padding: 15px;
+    color: var(--bg-secondary);
+    font-size: 17px;
+    cursor: text;
+    transition: var(--transition-speed);
+}
+
+.search-input:hover{
+    background-color: white;
+    transition: var(--transition-speed);
+    padding-right: 50px;
+    box-shadow: inset 0px 0px 10px rgba(0,0,0,0.4);
+}
+
+.search-input::placeholder {
+    color: var(--bg-secondary);
+}
+
+/* Container for the content of the webpage */
+#content {
+    margin-left: 5rem;
+    padding-left: 0rem;
+    margin-top: 5rem;
+}
+
+/* Navbar CSS */
+
+.navbar {
+    position: fixed;
+    background-color: var(--bg-secondary);
+    transition: 200ms ease;
+    /* Top */
+    z-index: 6;
+
+    box-shadow: rgba(3, 8, 20, 0.1) 0px 0.15rem 0.5rem, rgba(2, 8, 20, 0.1) 0px 0.075rem 0.175rem;
+}
+
+.navbar-nav {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 100%;
+}
+
+.nav-item {
+    width: 100%;
+}
+
+.nav-item:last-child {
+    margin-top: auto;
+}
+
+.nav-link {
+    display: flex;
+    align-items: center;
+    height: 5rem;
+    color: var(--text-primary);
+    text-decoration: none;
+    filter: grayscale(100%) opacity(0.7);
+    transition: var(--transition-speed);
+}
+
+.nav-link:hover {
+    filter: grayscale(0%) opacity(1);
+    background: var(--bg-tertiary);
+    color: var(--text-secondary);
+}
+
+.link-text {
+    display: none;
+    margin-left: 1rem;
+}
+
+.nav-link svg {
+    width: 2rem;
+    min-width: 2rem;
+    margin: 0 1.5rem;
+}
+
+.fa-primary {
+    color: var(--col-highlight);
+}
+
+.fa-primary {
+    transition: var(--transition-speed);
+}
+
+.nav-logo {
+    font-weight: bold;
+    text-transform: uppercase;
+    margin-bottom: 1rem;
+    text-align: center;
+    color: var(--text-secondary);
+    background: var(--bg-tertiary);
+    font-size: 1.5rem;
+    letter-spacing: 0.3ch;
+    width: 100%;
+}
+
+.nav-logo svg {
+    transform: rotate(0deg);
+    transition: var(--transition-speed);
+}
+
+.navbar:hover .nav-logo svg {
+    transform: rotate(-180deg);
+}
+
+/* CSS for game cards and grid */
+.item-container{
+    padding: 8rem;
+    padding-top: 3rem;
+    display: grid;
+    gap: 5rem;
+
+    grid-auto-rows: 400px;
+    grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+}
+
+.game-card {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background: var(--bg-secondary);
+    font-size: 2rem;
+    color: var(--text-primary);
+
+
+    box-shadow: rgba(3, 8, 20, 0.1) 0px 0.15rem 0.5rem, rgba(2, 8, 20, 0.1) 0px 0.075rem 0.175rem;
+    height: 100%;
+    width: 100%;
+    border-radius: 15px;
+    transition: all var(--transition-speed);
+    overflow: hidden;
+
+    min-width: 300px;
+    max-width: 400px;
+
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.game-card:hover{
+    filter: invert();
+}
+
+/* Contat page */
+.contact-div {
+    padding-top: 3rem;
+    padding-right: 1rem;
+    padding-left: 1rem;
+    margin-bottom: 18rem;
+}
+
+.inner-width {
+    max-width: 750px;
+    padding: 30px;
+    margin: auto;
+    box-shadow: rgba(3, 8, 20, 0.1) 0px 0.15rem 0.5rem, rgba(2, 8, 20, 0.1) 0px 0.075rem 0.175rem;
+    border-radius: 10px;
+    background: var(--bg-secondary);
+}
+
+.contact-div h1{
+    font-size: 35px;
+    margin-bottom: 30px;
+    letter-spacing: 2px;
+    font-weight: 400;
+}
+
+.contact-div h2 {
+    font-weight: 550;
+}
+
+.contact-div h3 {
+    font-weight: 400;
+    font-size: 15px;
+}
+
+.contact-text {
+    color: var(--text-primary);
+    margin-bottom: 10px;
+}
+
+.contact-text a{
+    color: var(--col-highlight);
+    text-decoration: none;
+}
+
+.contact-name, .contact-email, .contact-message, .contact-select{
+    background: none;
+    border: none;
+    outline: none;
+    border-bottom: 1px solid var(--col-highlight);
+    padding: 10px 6px;
+    color: var(--text-secondary);
+    font-size: 14px;
+    margin-bottom: 40px;
+}
+
+.contact-name {
+    width: 320px;
+    margin-right: 40px;
+}
+
+.contact-email {
+    width: 320px;
+}
+
+.contact-message {
+    min-width: 100%;
+    max-width: 100%;
+    min-height: 55px;
+}
+
+.contact-select {
+    margin-top: 2px;
+    appearance: none;
+    outline: none;
+    box-shadow: none;
+    background: var(--bg-secondary);
+    height: 3rem;
+    overflow: hidden;
+    line-height: 3;
+    cursor: pointer;
+    -moz-appearance:none; /* Firefox */
+    -webkit-appearance:none; /* Safari and Chrome */
+    appearance:none;
+}
+
+/*
+.contact-select option {
+    background: var(--bg-secondary);
+    color: #fff;
+    text-shadow: 0 1px 0 rgba(0, 0, 0, 0.4);
+    outline: none;
+}
+*/
+
+.contact-submit {
+    background: none;
+    color: var(--col-highlight);
+    border: 1px solid var(--col-highlight);
+    padding: 12px 30px;
+    border-radius: 8px;
+    text-transform: uppercase;
+    font-size: 14px;
+    transition: 0.2s linear;
+    cursor: pointer;
+    letter-spacing: 2px;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.contact-submit:hover {
+    background: var(--col-highlight);
+    color: lavender;
+}
+
+/* FAQ Page */
+
+.faq-div {
+    padding-top: 3rem;
+    padding-right: 1rem;
+    padding-left: 1rem;
+    margin-bottom: 7rem;
+}
+
+.inner-width-faq {
+    max-width: 900px;
+    padding: 30px;
+    margin: auto;
+    box-shadow: rgba(3, 8, 20, 0.1) 0px 0.15rem 0.5rem, rgba(2, 8, 20, 0.1) 0px 0.075rem 0.175rem;
+    border-radius: 10px;
+    background: var(--bg-secondary);
+}
+
+.faq-div p{
+    color: var(--text-primary);
+}
+
+.faq-div h1 {
+    font-size: 35px;
+}
+
+.faq-div h2 {
+    margin-top: 5px;
+}
+
+/* Login Page */
+
+.login-div {
+    padding-top: 3rem;
+    padding-right: 1rem;
+    padding-left: 1rem;
+    margin-bottom: 29rem;
+}
+
+.inner-width-login {
+    max-width: 400px;
+    padding: 30px;
+    margin: auto;
+    box-shadow: rgba(3, 8, 20, 0.1) 0px 0.15rem 0.5rem, rgba(2, 8, 20, 0.1) 0px 0.075rem 0.175rem;
+    border-radius: 10px;
+    background: var(--bg-secondary);
+}
+
+.inner-width-login h1{
+    float: left;
+    font-size: 40px;
+    border-bottom: 5px solid var(--col-highlight);
+    margin-top: 5px;
+    margin-bottom: 40px;
+    padding: 10px 0;
+}
+
+.login-textbox {
+    width: 100%;
+    overflow: hidden;
+    font-size: 20px;
+    padding: 8px 0;
+    margin: 8px 0;
+    margin-bottom: 20px;
+    border-bottom: 1px solid var(--col-highlight);
+}
+
+.login-textbox svg {
+    width: 16px;
+    float: left;
+    text-align: center;
+}
+
+.login-textbox input {
+    border: none;
+    background: none;
+    outline: none;
+    color: var(--text-primary);
+    font-size: 16px;
+    width: 80%;
+    float: left;
+    margin: 0 10px;
+}
+
+.login-btn {
+    background: none;
+    margin-top: 3rem;
+    color: var(--col-highlight);
+    border: 1px solid var(--col-highlight);
+    padding: 12px 30px;
+    border-radius: 8px;
+    text-transform: uppercase;
+    font-size: 14px;
+    transition: 0.2s linear;
+    cursor: pointer;
+    letter-spacing: 2px;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.login-btn:hover {
+    background: var(--col-highlight);
+    color: lavender;
+}
+
+/* Footer */
+#footer {
+    bottom: 0;
+    margin-left: 5rem;
+    padding-left: 1rem;
+}
+
+/* Small Screen */
+@media only screen and (max-width: 700px) {
+
+    #header {
+        justify-content: center;
+    }
+
+    #header img {
+        margin-right: 0;
+    }
+
+    #content {
+        margin-left: 0;
+    }
+
+    .navbar {
+        bottom: 0;
+        width: 100vw;
+        height: 5rem;
+    }
+
+    .nav-logo {
+        display: none;
+    }
+
+    .navbar-nav {
+        flex-direction: row;
+    }
+
+    .nav-link {
+        justify-content: center;
+    }
+
+    .item-container {
+        padding: 0;
+        padding-top: 5rem;
+        padding-bottom: 5rem;
+        margin-left: calc(50vw - 150px);
+    }
+
+    .game-card {
+        width: 240px;
+    }
+    
+    .search-box {
+        display: none;
+    }
+
+    .search-box-mobile {
+        display: flex;
+    }
+}
+
+/* Small screen for contact page */
+@media only screen and (max-width: 875px) {
+    .contact-name, .contact-email {
+        width: 100%;
+    }
+}
+
+/* Big Screen */
+@media only screen and (min-width: 701px) {
+    .navbar {
+        top: 0;
+        width: 5rem;
+        height: 100vh;
+    }
+
+    .navbar:hover {
+        width: 15rem;
+    }
+    
+    .navbar:hover .link-text {
+        display: inline;
+        transition: opacity var(--transition-speed);
+    }
+
+    .item-container {
+        padding-left: 12rem;
+    }
+}
